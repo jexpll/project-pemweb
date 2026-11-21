@@ -1,0 +1,362 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: #f3f0e9;
+    color: #181818;
+    font-family: Arial, sans-serif
+}
+
+.topbar {
+    height: 80px;
+    border-bottom: 1px solid #18181833;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6vw
+}
+
+.brand {
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #181818;
+    text-decoration: none
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px
+}
+
+.nav-links a,
+.login {
+    color: #181818;
+    text-decoration: none;
+    font-size: 12px
+}
+
+.nav-cta,
+.search-button {
+    background: #181818;
+    color: white;
+    padding: 14px 18px;
+    text-decoration: none;
+    border: 0
+}
+
+.menu-toggle {
+    display: none
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 52% 48%;
+    padding: 80px 6vw;
+    min-height: 590px
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 1px
+}
+
+.hero h1 {
+    font-size: clamp(55px, 8vw, 108px);
+    line-height: .88;
+    letter-spacing: -7px;
+    margin: 30px 0
+}
+
+.hero h1 em,
+h2 em {
+    font-family: Georgia;
+    font-weight: 400
+}
+
+.intro {
+    max-width: 360px;
+    line-height: 1.6
+}
+
+.search-box {
+    display: flex;
+    background: white;
+    border: 1px solid;
+    padding: 6px;
+    max-width: 630px;
+    margin-top: 30px
+}
+
+.search-field,
+.location-field {
+    padding: 12px;
+    display: flex;
+    gap: 8px
+}
+
+.search-field {
+    flex: 1
+}
+
+.search-field input {
+    border: 0;
+    outline: 0;
+    width: 100%
+}
+
+.location-field {
+    border-left: 1px solid #18181833
+}
+
+.popular {
+    font-size: 11px;
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap
+}
+
+.hero-art {
+    position: relative
+}
+
+.sun {
+    position: absolute;
+    background: #ff754b;
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    right: 15%;
+    top: 30px
+}
+
+.big-letter {
+    position: absolute;
+    font-size: 310px;
+    font-weight: 800;
+    color: #d8ff54;
+    right: 3%;
+    top: 40px
+}
+
+.job-card {
+    position: absolute;
+    color: white;
+    padding: 20px;
+    width: 195px;
+    box-shadow: 8px 12px #0002
+}
+
+.card-main {
+    background: #7557db;
+    right: 25%;
+    top: 110px;
+    transform: rotate(9deg);
+    z-index: 2
+}
+
+.card-back {
+    background: #181818;
+    right: 3%;
+    top: 210px;
+    transform: rotate(-8deg)
+}
+
+.job-card strong {
+    display: block;
+    font-size: 28px;
+    line-height: .9;
+    margin: 25px 0
+}
+
+.floating-tag {
+    position: absolute;
+    padding: 12px;
+    background: #d8ff54;
+    font-size: 11px;
+    z-index: 3
+}
+
+.tag-one {
+    top: 30px;
+    right: 38%
+}
+
+.tag-two {
+    bottom: 40px;
+    right: 8%;
+    background: white
+}
+
+.trust-row {
+    border-block: 1px solid #18181833;
+    padding: 22px 6vw;
+    display: flex;
+    justify-content: space-between;
+    color: #777
+}
+
+.discover {
+    padding: 100px 6vw
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end
+}
+
+.section-heading h2 {
+    font-size: 62px;
+    line-height: .9
+}
+
+.filter-row {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid #18181833;
+    padding: 45px 0 15px
+}
+
+.filter {
+    padding: 11px 15px;
+    background: none;
+    border: 1px solid #18181833
+}
+
+.filter.active {
+    background: #181818;
+    color: white
+}
+
+.filter-note {
+    margin-left: auto
+}
+
+.opportunity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px
+}
+
+.opportunity {
+    background: white;
+    padding: 25px;
+    min-height: 280px
+}
+
+.featured {
+    background: #d8ff54
+}
+
+.opportunity h3 {
+    font-size: 31px;
+    line-height: .95;
+    margin-top: 50px
+}
+
+.opp-foot {
+    border-top: 1px solid #18181833;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px
+}
+
+.manifesto {
+    background: #181818;
+    color: white;
+    padding: 100px 18vw;
+    min-height: 450px
+}
+
+.manifesto h2 {
+    font-size: 70px;
+    line-height: .9
+}
+
+.manifesto em {
+    color: #d8ff54
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 6vw;
+    font-size: 10px
+}
+
+.hidden {
+    display: none !important
+}
+
+@media(max-width:800px) {
+
+    .nav-links,
+    .nav-actions {
+        display: none
+    }
+
+    .menu-toggle {
+        display: block
+    }
+
+    .hero {
+        display: block;
+        padding: 60px 6vw
+    }
+
+    .hero-art {
+        height: 390px
+    }
+
+    .search-box {
+        display: block
+    }
+
+    .location-field {
+        border: 0;
+        border-top: 1px solid #ddd
+    }
+
+    .search-button {
+        width: 100%
+    }
+
+    .trust-row {
+        flex-wrap: wrap;
+        gap: 15px
+    }
+
+    .trust-row span {
+        width: 100%
+    }
+
+    .discover {
+        padding: 70px 6vw
+    }
+
+    .section-heading h2 {
+        font-size: 50px
+    }
+
+    .opportunity-grid {
+        grid-template-columns: 1fr
+    }
+
+    .manifesto {
+        padding: 70px 10vw
+    }
+
+    .manifesto h2 {
+        font-size: 52px
+    }
+
+    footer {
+        flex-wrap: wrap;
+        gap: 15px
+    }
+}
