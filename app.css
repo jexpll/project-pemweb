@@ -8,11 +8,21 @@
    box-sizing: border-box
 }
 
+html, body {
+   width: 100%;
+   max-width: 100%;
+   overflow-x: hidden
+}
+
 body {
    margin: 0;
    background: #f4f7f8;
    color: #152331;
    font: 14px Arial, sans-serif
+}
+
+img, svg, video {
+   max-width: 100%
 }
 
 a {
@@ -183,7 +193,9 @@ h2 em {
 .scene {
    position: relative;
    min-height: 350px;
-   transition: .2s
+   transition: .2s;
+   overflow: hidden;
+   max-width: 100%
 }
 
 .grid3d {
@@ -2143,81 +2155,374 @@ footer {
 }
 
 /* ═══════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE DESIGN SYSTEM
 ═══════════════════════════════════ */
-@media(max-width:800px) {
+
+/* Touch & Cursor safety */
+@media (hover: none) or (pointer: coarse) {
+   .cursor-dot {
+      display: none !important;
+   }
+}
+
+/* Medium screens & Tablets */
+@media (max-width: 992px) {
+   .hero {
+      grid-template-columns: 1fr !important;
+      padding: 60px 6vw !important;
+   }
+
+   .scene {
+      margin-top: 30px !important;
+      overflow: hidden !important;
+      max-width: 100% !important;
+   }
+
+   .detail-grid {
+      grid-template-columns: 1fr !important;
+      gap: 36px !important;
+   }
+
+   .lowongan-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+   }
+
+   .how {
+      padding: 70px 8vw !important;
+      gap: 30px !important;
+   }
+}
+
+/* Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+   .topbar {
+      height: 70px !important;
+      padding: 0 5vw !important;
+   }
 
    .topbar nav,
-   .account {
-      display: none
+   .topbar .account {
+      display: none !important;
    }
 
    .menu-toggle {
-      display: block
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      color: #152331;
+      padding: 8px;
+   }
+
+   .mobile-nav {
+      top: 70px !important;
+      padding: 16px 5vw 24px !important;
+   }
+
+   /* Typography scaling for mobile */
+   .hero h1 {
+      font-size: clamp(32px, 8.5vw, 48px) !important;
+      line-height: 1.05 !important;
+      letter-spacing: -1.5px !important;
+      margin: 18px 0 !important;
+   }
+
+   .jobs-heading h2,
+   .section-head h2,
+   .how h2,
+   .lowongan-header h1,
+   .panduan-hero h1 {
+      font-size: clamp(28px, 7vw, 40px) !important;
+      line-height: 1.05 !important;
+      letter-spacing: -1.5px !important;
+   }
+
+   .dashboard h1,
+   .detail h1,
+   .panel h1,
+   .faq-inner h2,
+   .panduan-cta h2 {
+      font-size: clamp(26px, 6.5vw, 36px) !important;
+      line-height: 1.1 !important;
+      letter-spacing: -1px !important;
+   }
+
+   .lead {
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+   }
+
+   /* Hero & Scene */
+   .hero {
+      padding: 45px 5vw 25px !important;
+      display: block !important;
+   }
+
+   .scene {
+      min-height: 270px !important;
+      margin-top: 25px !important;
+      overflow: hidden !important;
+   }
+
+   .scene-card {
+      right: 5% !important;
+      top: 50px !important;
+      width: 190px !important;
+      padding: 18px !important;
+      transform: rotate(4deg) scale(0.95) !important;
+   }
+
+   .scene-card strong {
+      font-size: 22px !important;
+      margin: 20px 0 !important;
+   }
+
+   .orb {
+      width: 180px !important;
+      height: 180px !important;
+      right: 10% !important;
+      top: 20px !important;
+   }
+
+   /* Stats Grid */
+   .stats {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 16px !important;
+      padding: 24px 5vw !important;
+   }
+
+   .stats div {
+      border: 0 !important;
+      padding: 0 !important;
+   }
+
+   .stats b {
+      font-size: 24px !important;
+   }
+
+   /* Section & Headings */
+   .section {
+      padding: 45px 5vw !important;
+   }
+
+   .section-head {
+      display: block !important;
+      margin-bottom: 24px !important;
+   }
+
+   .section-head > p {
+      max-width: 100% !important;
+      margin-top: 10px !important;
+   }
+
+   /* Categories */
+   .categories {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+   }
+
+   .categories a {
+      padding: 14px !important;
+      font-size: 13px !important;
+   }
+
+   /* Jobs Section & Cards */
+   .jobs {
+      padding: 45px 5vw !important;
    }
 
    .jobs-heading {
-      display: block
+      display: block !important;
+      margin-bottom: 20px !important;
    }
 
-   .jobs-heading h2 {
-      font-size: 42px
+   .jobs-heading > strong {
+      display: block !important;
+      margin-top: 8px !important;
    }
 
-   .filter-bar {
-      display: block
+   .all-jobs,
+   .lowongan-grid {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
    }
 
-   .filter-bar>* {
-      display: flex;
-      width: 100%;
-      border: 0 !important;
-      border-bottom: 1px solid var(--line) !important;
-      padding: 12px
+   .job-card {
+      padding: 18px !important;
    }
 
-   .all-jobs {
-      grid-template-columns: 1fr
+   .see-all-wrap {
+      margin-top: 24px !important;
    }
 
-   .compact {
-      padding-top: 50px
+   .see-all-btn {
+      width: 100% !important;
+      text-align: center !important;
+      padding: 13px 20px !important;
    }
 
-   .place {
-      max-width: 80px
+   /* How Section */
+   .how {
+      display: block !important;
+      padding: 50px 5vw !important;
    }
 
+   .steps {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+      margin-top: 30px !important;
+   }
+
+   .steps div {
+      border-left: 2px solid rgba(255, 255, 255, 0.25) !important;
+      padding-left: 16px !important;
+   }
+
+   /* Lowongan Filter on kategori.php */
+   .lowongan-header {
+      padding: 45px 5vw 30px !important;
+   }
+
+   .lowongan-filter-wrap {
+      position: static !important;
+      padding: 16px 5vw 0 !important;
+   }
+
+   .lowongan-filter {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 10px !important;
+   }
+
+   .lf-search,
+   .lf-selects {
+      width: 100% !important;
+   }
+
+   .lf-selects {
+      display: flex !important;
+      gap: 8px !important;
+   }
+
+   .lf-selects select {
+      flex: 1 !important;
+   }
+
+   .kat-chips {
+      margin-top: 12px !important;
+      padding-bottom: 14px !important;
+      gap: 6px !important;
+   }
+
+   .kat-chip {
+      padding: 6px 14px !important;
+      font-size: 11px !important;
+   }
+
+   .lowongan-list-wrap {
+      padding: 24px 5vw 60px !important;
+   }
+
+   /* Panduan Page */
    .panduan-hero {
-      padding: 60px 6vw
+      padding: 50px 5vw 35px !important;
    }
 
    .panduan-steps {
-      padding: 50px 6vw
+      padding: 35px 5vw !important;
    }
 
    .pstep {
-      grid-template-columns: 1fr;
-      gap: 12px
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+      padding: 24px 0 !important;
    }
 
    .pstep-num {
-      font-size: 28px
+      font-size: 26px !important;
    }
 
    .faq-section {
-      padding: 50px 6vw
-   }
-
-   .faq-inner h2 {
-      font-size: 38px
+      padding: 40px 5vw !important;
    }
 
    .panduan-cta {
-      padding: 60px 6vw
+      padding: 45px 5vw !important;
    }
 
-   .panduan-cta h2 {
-      font-size: 38px
+   /* Auth Pages */
+   .auth-wrap {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: auto 1fr !important;
+   }
+
+   .auth-brand {
+      padding: 30px 5vw !important;
+      min-height: 180px !important;
+   }
+
+   .auth-brand::after {
+      font-size: 120px !important;
+      right: -10px !important;
+   }
+
+   .auth-form-panel {
+      padding: 30px 5vw 50px !important;
+   }
+
+   /* Detail & Dashboard */
+   .detail,
+   .dashboard {
+      padding: 40px 5vw !important;
+   }
+
+   .detail-grid {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+      margin-top: 30px !important;
+   }
+
+   .application-list article {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+   }
+
+   /* Footer */
+   footer {
+      padding: 20px 5vw !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 10px !important;
+   }
+}
+
+/* Small Screens (<= 480px) */
+@media (max-width: 480px) {
+   .topbar {
+      height: 64px !important;
+   }
+
+   .mobile-nav {
+      top: 64px !important;
+   }
+
+   .categories {
+      grid-template-columns: 1fr !important;
+   }
+
+   .stats {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+   }
+
+   .cta-btns {
+      flex-direction: column !important;
+      width: 100% !important;
+   }
+
+   .cta-btns a {
+      width: 100% !important;
+      text-align: center !important;
    }
 }

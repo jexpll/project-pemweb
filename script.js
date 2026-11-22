@@ -1,7 +1,9 @@
 /* ── Splash screen ── */
 document.addEventListener('DOMContentLoaded', () => {
+  initPage(); // Inisialisasi semua interaksi UI segera agar tidak tertunda
+
   const splash = document.getElementById('splash');
-  if (!splash) return initPage();
+  if (!splash) return;
 
   // Jika sedang memfilter di halaman lowongan (kategori.php dengan query param), skip splashscreen
   const isKategoriFilter = window.location.pathname.includes('kategori.php') &&
@@ -9,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (isKategoriFilter) {
     splash.remove();
-    initPage();
     return;
   }
 
@@ -18,22 +19,43 @@ document.addEventListener('DOMContentLoaded', () => {
     splash.classList.add('splash-out');
     setTimeout(() => {
       splash.remove();
-      initPage();
     }, 500);
   }, 1000);
 });
 
+let isPageInitialized = false;
 function initPage() {
+  if (isPageInitialized) return;
+  isPageInitialized = true;
+
   /* ── Topbar: mobile menu ── */
   const menu = document.querySelector('.menu-toggle');
   const nav = document.querySelector('nav');
   const mobilePanel = document.querySelector('.mobile-nav');
-  if (menu) {
-    menu.onclick = () => {
-      const open = nav && nav.classList.toggle('mobile-open');
-      if (mobilePanel) mobilePanel.classList.toggle('open');
+  if (menu && mobilePanel) {
+    menu.onclick = (e) => {
+      e.stopPropagation();
+      const open = mobilePanel.classList.toggle('open');
+      if (nav) nav.classList.toggle('mobile-open', open);
       menu.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
+
+    // Tutup mobile menu saat link diklik atau klik di luar
+    mobilePanel.querySelectorAll('a').forEach(a => {
+      a.onclick = () => {
+        mobilePanel.classList.remove('open');
+        if (nav) nav.classList.remove('mobile-open');
+        menu.setAttribute('aria-expanded', 'false');
+      };
+    });
+
+    document.addEventListener('click', (e) => {
+      if (mobilePanel.classList.contains('open') && !mobilePanel.contains(e.target) && !menu.contains(e.target)) {
+        mobilePanel.classList.remove('open');
+        if (nav) nav.classList.remove('mobile-open');
+        menu.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
   /* ── Topbar: shrink on scroll ── */
