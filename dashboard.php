@@ -9,7 +9,7 @@ $apps = $s->fetchAll(); ?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Dashboard — Karsa</title>
+    <title>Dashboard | Karsa</title>
     <link rel="stylesheet" href="app.css">
 </head>
 

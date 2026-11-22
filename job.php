@@ -20,7 +20,7 @@ if (user()) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title><?= e($job['title']) ?> — Karsa</title>
+    <title><?= e($job['title']) ?> | Karsa</title>
     <link rel="stylesheet" href="app.css">
 </head>
 
