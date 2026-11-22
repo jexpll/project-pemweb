@@ -9,7 +9,7 @@
 
 ## Tim Pengembang
 
-Website ini disusun dan dikembangkan sebagai bagian dari pemenuhan tugas praktikum oleh **Kelompok 1**:
+Website ini disusun dan dikembangkan sebagai bagian dari pemenuhan tugas praktikum oleh **Kelompok 1** :
 
 - **Darma Winata Suganda**
 - **Arya Azizan**
